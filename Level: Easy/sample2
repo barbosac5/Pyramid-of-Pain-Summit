@@ -1,0 +1,11 @@
+# Discussing the new sample received by adversary Sphinx (sample2.exe)
+
+Since the hash digest can be easily altered, detecting malware by its hash is not enough. As described previously, the adversary needs to tweak the malware's code, creating an entirely new hash. The following sample (sample2.exe) was 
+recomplied by the attacker and was executed without issue since the hash value had changed. This means I must continue to defend by developing a new way to detect the adversary's malware. 
+
+# Method to block sample2.exe
+To detect and block the following sample, I had to configure a new firewall rule to block the specific IP address associated with the malware by running a new report on sample2.exe. The report provided details, including HTTP Requests 
+and Connections, where it looks like the malware sends an HTTP GET request to an external IP address 154.35.10.133 over port 4444. This information is needed to create a new firewall rule to limit PicoSecure’s devices from communicating with 
+the hostile IP address. With the IP information displayed, I navigated to the Firewall Rule Manager and created a new firewall rule. Based on the information within the sample2.exe report, I must specify that any outgoing (egress) communication 
+with the hostile IP (154.35.10.113) must be blocked from all machines within PicoSecure (the source).
+
