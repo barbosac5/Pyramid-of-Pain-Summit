@@ -1,0 +1,12 @@
+#Sample 1: Pyramid of Pain Level 1 “Trivial”. 
+
+To complete the first sample, Sphinx sends us a malware sample (sample1.exe) to execute malware on a simulated compromised user account. 
+The goal is to see if PicoSecure’s security tools can detect and block the attack using the first level of the Pyramid of Pain (Hash Values). 
+The analyst’s job is to create a detection rule to block this malware, which will cause Sphinx to attempt other methods that will coincide with the upcoming Pyramid of Pain levels.
+
+# Methodology
+I first needed to run a report on the executable file using the Malware Sandbox report generator. The Malware Sandbox scans and analyzes the malware sample to uncover valuable information and help me create a new detection rule. 
+The scan on the malware sample includes its behavior analysis, file size, tags, and hash algorithm values. With hashes readily available, I can create a detection rule to block the malware based on its hash value from executing using 
+the Manage Hashes tool. To create the rule in this scenario, I select the specific algorithm(s) the security tool will look for, choose the hash algorithm, and then submit the hash value. The tool will create a new detection rule and 
+block the malware matching that specific hash value upon completion. While this may stop the sample, hash digests can easily change upon modification of the same file in any way. This circumventing of the detection rule can be considered 
+a trivial amount of “pain” that an adversary has to experience since they need to modify the file slightly. 
