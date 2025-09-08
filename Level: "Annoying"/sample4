@@ -1,0 +1,10 @@
+# Starting Sample 4
+As I ascend through the Pyramid of Pain by implementing defenses, I am causing Sphinx more trouble since they will need to go to greater lengths to gain unauthorized access to PicoSecure systems and data. 
+Lengths include purchasing and registering new domains, which can be costly to most adversaries. A new sample was sent, and I am now required to find any changes made by the malware (artifacts) on the victim’s system. 
+To see changes, I will first need to generate a report on the new malware and identify any suspicious behavior caused by the malware execution on the host system. Based on the screenshot below, behaviors marked as “Malicious” 
+include the Process ID (PID) 3806, which turns off Windows Defender Real-time monitoring.
+
+# How to Complete Sample 4
+As part of the fourth level of the Pyramid of Pain, I must create a new rule to focus on this malicious behavior. I first created a new rule to focus on System Activity Logs (Sysmon Event Logs). I then select the Registry Modifications value, 
+which searches for and identifies any system changes or configurations within PicoSecure systems. Finally, I input the registry key, name, and Value from the Sample4.exe report. I need to input the correct Adversary Tactics, Techniques & Common Knowledge 
+(ATT&CK) option as Defense Evasion since the malware aims to disable Windows Defender, a primary detection method.
