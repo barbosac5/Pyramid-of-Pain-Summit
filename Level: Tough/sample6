@@ -1,0 +1,9 @@
+# Sample 6
+With almost all adversary methods blocked, Sphinx has one last attack, sample 6, covering explicitly their technique and procedures (how they think and act when they have gained unauthorized access). 
+Their commands can be seen within a log file (commands.log), which shows Sphinxs' actions once they access a victim's machine.
+
+# Rule generation to block sample6.exe
+One last rule must be created using the Rule Binder to thwart this final attempt. By focusing on Sysmon Events, I need to target events involving File Creation and Modification. For Step 3: 
+I need to fill in the following information using the log file provided for sample 6. This includes the File Path (input as %temp%), the File Name (exfiltrate.log), and lastly, the ATT&CK ID (Collection). 
+Once the rule is validated, the simulation is over with Sphinx giving up, and all the levels of the Pyramid of Pain are exercised.
+
