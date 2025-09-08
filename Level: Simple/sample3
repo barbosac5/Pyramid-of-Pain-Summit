@@ -1,0 +1,11 @@
+# Start of Sample 3
+After stopping Sphinx again, a third malware sample (sample3.exe) was sent along with an update that blocking through IP addresses would no longer be feasible. Sphinx has pivoted to a cloud service provider, 
+leading to the accessibility of more public IP addresses. Utilizing a cloud service provider requires some investment (the "pain"), but it is not impossible to be set up with hundreds of public IPs upon signing up. For example, 
+it is manageable for some adversaries, such as advanced persistent threats (APTs). To continue the exercise, I will need to come up with a new solution to stop the following malware sample.
+
+
+#  Completing Sample 3
+To thwart Sphinx, I must utilize the next level of the Pyramid of Pain, which consists of domains under use. Like with the previous samples, I ran a report on sample3.exe and checked for any unusual domains that can be associated with the adversary. 
+I could find the connections made by sample3 and a backdoor executable connecting to the domain "emudyn.bresonicz.info".  To complete this step, I must block the Domain in question by taking advantage of PicoSecure's DNS Filter and creating a new DNS rule. 
+For this rule, I name it "Block sample3.exe" for simplicity's sake. Since the executable is a form of Malware, the category is Malware, the domain name is the Domain found within the sample3 report ("emudyn.bresonicz.info"), and the action is set as "Deny" 
+to prevent sample3 from connecting to Sphinx's C2 server.
