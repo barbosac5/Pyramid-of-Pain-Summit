@@ -1,0 +1,11 @@
+# Sample 5 start
+With sample 4 successfully blocked, many attackers would have given up due to many not having the resources and time investment to continue pushing onward. However, this is a collaborative scenario where sample 5 
+requires a new detection method. The goal is to find something abnormal about the tool's behavior and configure a rule to detect it. The outgoing_connections.log file has been provided to me so I can discover the pattern.
+
+# Sample 5 method
+First, I analyze the log to see if I can uncover a pattern indicating malicious behavior. While there are spikes in the size (bytes) of data going to Sphinx (which looks like data exfiltration), 
+there are also logs showing 97 bytes. To detect the sample, I will need to configure a new rule utilizing the same tool used within sample 4, the Sigma Rule Binder. For Step 1, I create a new rule focusing on Sysmon Event 
+Logs and then target Network Connections as the Event I want to focus on, since the log file shows connections made with the victim machine over multiple IP addresses. Finally, for Step 3, I input the necessary information to 
+configure the new rule. For Remote IP, the attacker utilized many different IPs to invest in a cloud service provider (many public IPs), so I input 'Any'. Remote ports, I again input 'Any' since the C2 activity occurs through several ports. 
+For the file size, I input 97 bytes. The frequency of the logs is about every 30 minutes, so I input a 30-minute frequency in seconds (1800 seconds). For the ATT&CK ID, I input Command and Control, the data exfiltration includes 
+the  exfiltration (through a large amount of bytes that exit the victim system) and the 97 bytes look to be some "downtime" before the next instruction from the C2 server. 
